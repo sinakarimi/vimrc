@@ -1,0 +1,15 @@
+" Dracula theme
+Plugin 'sinakarimi/dracula-theme',{'rtp': 'vim/'}
+
+" Custom plugins
+" Plugin 'maksimr/vim-jsbeautify'
+" Plugin 'einars/js-beautify'
+Plugin 'bling/vim-airline'
+Plugin 'godlygeek/tabular'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'paranoida/vim-airlineish' " vim-airline theme
+Plugin 'digitaltoad/vim-jade'
+Plugin 'Shougo/unite.vim'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'ternjs/tern_for_vim'
+Plugin 'Valloric/YouCompleteMe'

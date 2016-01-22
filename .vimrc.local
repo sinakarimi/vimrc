@@ -1,0 +1,62 @@
+set cursorline " highlight current line
+
+" keyboard shortcuts
+inoremap jj <ESC>
+
+" highlight search
+"set hlsearch
+"nmap <leader>hl :let @/ = ""<CR>
+
+set t_Co=256
+set term=xterm-256color
+" Disable Background Color Erase (BCE) so that color scheme work
+" properly when Vim is used inside tmux and GNU screen.
+set t_ut=
+
+" gui settings
+if (&t_Co == 256 || has('gui_running'))
+  if ($TERM_PROGRAM == 'iTerm.app')
+    colorscheme dracula
+  else
+    colorscheme desert
+  endif
+endif
+
+" Disambiguate ,a & ,t from the Align plugin, making them fast again.
+"
+" This section is here to prevent AlignMaps from adding a bunch of mappings
+" that interfere with the very-common ,a and ,t mappings. This will get run
+" at every startup to remove the AlignMaps for the *next* vim startup.
+"
+" If you do want the AlignMaps mappings, remove this section, remove
+" ~/.vim/bundle/Align, and re-run rake in maximum-awesome.
+function! s:RemoveConflictingAlignMaps()
+  if exists("g:loaded_AlignMapsPlugin")
+    AlignMapsClean
+  endif
+endfunction
+command! -nargs=0 RemoveConflictingAlignMaps call s:RemoveConflictingAlignMaps()
+silent! autocmd VimEnter * RemoveConflictingAlignMaps
+
+" Sina's Custom Stuff Here
+set relativenumber " set relative line numbering
+set nowrap " disable line wrapping
+set mouse=a " Enable mouse
+
+autocmd FileType javascript noremap <buffer> <c-f> :call JsBeautify()<cr>
+
+" Syntastic checkers
+let g:syntastic_javascript_checkers = ['standard']
+
+" Vim Airline Theme
+let g:airline_theme = 'airlineish'
+
+" Enable gitgutter by default
+let g:gitgutter_enabled = 1
+
+" Tern binary file
+let g:tern_command = '/Users/sinakarimi/.nvm/versions/node/v0.10.41/bin/node'
+
+" Tern Settings
+let g:tern_show_argument_hints="on_hold"
+let g:tern_map_keys=1
