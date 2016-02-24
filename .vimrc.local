@@ -43,6 +43,10 @@ set relativenumber " set relative line numbering
 set nowrap " disable line wrapping
 set mouse=a " Enable mouse
 
+set nobackup
+set noswapfile
+set nowritebackup
+
 autocmd FileType javascript noremap <buffer> <c-f> :call JsBeautify()<cr>
 
 " Syntastic checkers
@@ -60,3 +64,27 @@ let g:tern_command = '/Users/sinakarimi/.nvm/versions/node/v0.10.41/bin/node'
 " Tern Settings
 let g:tern_show_argument_hints="on_hold"
 let g:tern_map_keys=1
+
+" ================== Easy Motion ==================
+
+" let g:EasyMotion_do_mapping = 0 " Disable default mappings
+
+" " Jump to anywhere you want with minimal keystrokes, with just one key
+" " binding.
+" " `s{char}{label}`
+" nmap s <Plug>(easymotion-overwin-f)
+
+" " Turn on case insensitive feature
+" let g:EasyMotion_smartcase = 1
+
+" " JK motions: Line motions
+" map <Leader>j <Plug>(easymotion-j)
+" map <Leader>k <Plug>(easymotion-k)
+"
+" =============== WINDOW NAVIGATION =============== "
+
+nnoremap <C-1> 1gt
+nnoremap <C-0> :tablast<CR>
+inoremap <C-1> <esc>1gt
+inoremap <C-0> <esc>:tablast<CR>
+
